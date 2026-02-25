@@ -1,6 +1,310 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>Hello. This is Maham</h1>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maham Gul|Professional Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #ece9e6;
+  --header-dark: #0f1117;
+  --header-light: #1c1f2a;
+  --text: #f3e9ec;        /* main body text */
+  --muted: #7a7d84;       /* slightly brighter muted gray */
+  --accent: #9a6b7c;
+  --card: #fffdfa;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #2a0e14, #130709);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+header {
+  position: relative;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%),
+    linear-gradient(135deg, #0e0508, #1b0b10);
+  color: #f5e9ed;
+  padding: 120px 20px 100px;
+  text-align: center;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 60%);
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(30deg) translateX(-100%); }
+  50% { transform: rotate(30deg) translateX(100%); }
+  100% { transform: rotate(30deg) translateX(-100%); }
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 12px 12px;
+  pointer-events: none;
+}
+
+header h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3rem;
+  letter-spacing: 1.2px;
+  color: #fbe8f0;
+  text-shadow: 0 0 8px rgba(255,230,240,0.4), 0 0 20px rgba(154,107,124,0.25);
+}
+
+header p {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: #d4d7e0;
+}
+
+/* SECTION LAYOUT */
+section {
+  max-width: 1150px;
+  margin: 80px auto;
+  padding: 0 22px;
+  display: grid;
+  gap: 50px;
+}
+
+/* CARD — FLASH / LUXURY */
+.card {
+  position: relative;
+  background: linear-gradient(145deg, #330000, #220312);
+  padding: 42px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08), inset 0 1px 1px rgba(255,255,255,0.9);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  overflow: hidden;
+}
+
+.card h2 {
+  color: #f8e9ee;
+}
+
+.card p,
+.card li {
+  color: #e6d6de;   /* slightly brighter for better contrast */
+}
+
+.card li::before {
+  color: #d9a3b3;
+}
+
+/* GLOW RING */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: 0 0 18px rgba(154,107,124,0.25), inset 0 0 12px rgba(255,255,255,0.06);
+  transition: box-shadow 0.5s ease;
+}
+
+/* HOVER MAGIC */
+.card:hover {
+  transform: translateY(-14px) scale(1.02);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.22), 0 0 40px rgba(154,107,124,0.18);
+}
+
+.card:hover::before {
+  animation: sparkle 1.3s ease forwards;
+  opacity: 1;
+}
+
+.card:hover::after {
+  box-shadow: 0 0 32px rgba(154,107,124,0.45), 0 0 60px rgba(154,107,124,0.15), inset 0 0 14px rgba(255,255,255,0.08);
+}
+
+/* HEADINGS */
+h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.9rem;
+  color: #fbe8f0;  /* brighter heading for contrast */
+  margin-bottom: 18px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 10px;
+  background: linear-gradient(to right, #d9a3b3, transparent);
+}
+
+/* TEXT */
+p {
+  color: var(--text);
+}
+
+/* LISTS */
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  color: var(--muted);
+}
+
+ul li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+/* SKILLS — JEWEL TAGS */
+.skills span {
+  display: inline-block;
+  margin: 10px 12px 0 0;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(217,163,179,0.45);
+  font-size: 0.85rem;
+  color: #f6e6eb;
+  backdrop-filter: blur(6px);
+  transition: all 0.35s ease;
+}
+
+.skills span:hover {
+  background: linear-gradient(135deg, #d9a3b3, #8b2c45);
+  color: #1a050b;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  font-size: 0.9rem;
+  color: #828488;   /* slightly brighter muted footer for visibility */
+}
+</style>
+</head>
+
+<body>
+
+  <!-- FORMAL HEADER -->
+  <header>
+    <h1>Maham Gul</h1>
+    <p>Computer Science UnderGraduate · Software Developer · Creative Technologist</p>
+  </header>
+
+  <section>
+
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        A computer science graduate with a strong interest in building reliable, 
+        well-structured software solutions. I enjoy transforming ideas into 
+        functional applications and value clean code, thoughtful design, and continuous learning.
+        Alongside technology, I have a creative side expressed through photography and
+        an appreciation for aesthetics and detail.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Education</h2>
+      <ul>
+        <li>DHA SSG 2020 Matriculation (Science)</li>
+        <li>DDCW 2022 FSC (Pre Medical)</li>
+        <li>FAST NUCES SOPHOMORE B.S in Computer Science 2023-Ongoing</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Areas of Proficiency</h2>
+      <ul>
+        <li>Detail-oriented with a commitment to accuracy</li>
+        <li>Cooperative and articulate in team environments</li>
+        <li>Critical thinking and solution design</li>
+        <li>Enthusiastic tech learner with a growth mindset</li>
+        <li>Time management</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <span>Python</span>
+        <span>C++</span>
+        <span>C</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>COAL</span>
+        <span>JavaScript</span>
+        <span>Flutter</span>
+        <span>SQL</span>
+        <span>Git & GitHub</span>
+        <span>Communication and Presentations</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Certifications</h2>
+      <ul>
+        <li>[Certificate of Merit] from DHAES Nov 2022</li>
+        <li>[Deans List of Honors] from FAST Fall 2023, Fall 2024, Spring 2025</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Student Portfolio Management System</strong> – Designed and developed a centralized platform to manage student profiles, academic records, and achievements (1st Semester).</li>
+        <li><strong>Sports Complex Booking Portal</strong> – Built an online reservation system enabling users to book sports facilities with scheduling and availability management (2nd Semester).</li>
+        <li><strong>Bank Management System (OOP-Based)</strong> – Implemented core banking functionalities using object-oriented programming principles such as inheritance, encapsulation, and polymorphism (2nd Semester).</li>
+        <li><strong>Flappy Bird Game (Assembly Language)</strong> – Developed a low-level arcade-style game focusing on memory management, registers, and hardware-level logic (3rd Semester).</li>
+        <li><strong>Donor Hub</strong> – Created a platform to connect donors with recipients, streamlining donation requests and management processes (4th Semester).</li>
+        <li><strong>Cook Mate: AI-Driven Voice Assistant</strong> – Designed an intelligent voice-enabled assistant to assist users with cooking instructions, recipes, and hands-free interaction (5th Semester).</li>
+        <li><strong>Eventify</strong> – Developed an event management system to organize, schedule, and manage events efficiently with user-friendly interfaces (5th Semester).</li>
+        <li><strong>Utility</strong> – Currently developing a comprehensive utility management application integrating multiple productivity and service-oriented features (Ongoing).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Interests</h2>
+      <ul>
+        <li>Photography — visual storytelling and composition</li>
+        <li>Food Exploration — culinary experiences and culture</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 · Maham Gul
+  </footer>
+
+</body>
 </html>
